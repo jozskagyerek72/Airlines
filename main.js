@@ -7,6 +7,5 @@ getData(url,renderAirlines)
 
 function renderAirlines(data)
 {
-    console.log(data,"ok");
+    console.log(data);
 }
-//as
