@@ -1,6 +1,8 @@
 import { apiKey } from "./apiKey.js";
 import { getData } from "./getData.js";
 
+let airline = []
+
 let options = {
     method : 'GET',
     headers : {'x-api-key' : '5by5k6zv55vIEVCi0pyjWrqodlmXP90l2MA0n1tg'}
@@ -11,19 +13,23 @@ fetch(url, options)
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        airline=data;
+        document.querySelector('.airline-list').innerHTML+=`
+        <div class=" flex"><img class="" src="${data[0].logo_url}" alt="f"></div>
+        `
     })
     .catch(err => {
         console.log(`error ${err}`);
     })
 
-let airline = []
+
 let page = 1
 let totalPage = 1
 let AlPerPage = 8
 
 document.querySelector('.pagination').addEventListener('click',handlePaginationClick)
 document.querySelector('.myBtn').addEventListener('click', handleClick)
-getData(url,renderAirlines)
+showAirline(airline)
 
 function handleClick(){
     let AlName = document.querySelector('.myInput').value
@@ -65,11 +71,3 @@ function renderPagination(totalItem) {
        
     }
 }
-function handlePaginationClick(e) {
-    console.log(e.target.textContent);
-    if(e.target.tagName=='BUTTON'){
-        page=+e.target.textContent
-        showAirline()
-    }
- }
- //getData(returnUrl(apiKey), renderAirlines)
