@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cats</title>
+	<title>Airline</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<style type="text/tailwindcss">
 		@layer components{
@@ -25,19 +25,29 @@
                 @apply object-cover w-[100%] aspect-square; 
             }*/
         }
-
+		body{
+			background-image: url("./909400.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			justify-content: center;
+		
+		}
+		.container{
+			max-width: 95%;
+			margin: auto;
+		}
 
 		
     </style>
 </head>
 
 <body>
-    <div class="container border flex justify-center gap-2 items-center p-2 ">
+    <div class="container border flex justify-center gap-2 items-center bg-slate-700 shadow-xl p-4 shadow-slate-400">
 
 
 
-		<input class="myInput w-[250px]" type="text" placeholder="add meg a fajta nevét">
-		<button class="myBtn ">listáz</button>
+		<input class="myInput w-[250px]" type="text" placeholder="Search an airline!">
+		<button class="myBtn ">Search</button>
 
 		<button disabled type="button"
 			class=" loading py-2.5 px-5 me-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 inline-flex items-center">
