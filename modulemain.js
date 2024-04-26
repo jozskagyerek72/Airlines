@@ -56,11 +56,11 @@ const getData = async (url, renderFC)=>{
 
 function showAirlines(data)
 {
-    airline.forEach(item => {
+    document.querySelector('.logoD').innerHTML=""
         document.querySelector('.logoD').innerHTML+=`
-        <div class="card"><img class="img-fluid" src="${item.logo_url}" alt="f"></div>
+        <div class="card"><img class="img-fluid" src="${airline[0].logo_url}" alt="f"></div>
         `
-    })
+    
     getData(urlpic+page+query+qStr, renderAirlines)
 
 }
