@@ -77,5 +77,8 @@ function renderAirlines(data){
 }
 
 
+function searchAirlines(searched)
+{
 
+}
 
