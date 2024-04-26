@@ -54,7 +54,7 @@ function showAirlines(data)
 {
     airline.forEach(item => {
         document.querySelector('.airline-list').innerHTML+=`
-        <div class=" card"><img class="img-fluid" src="${item.logo_url}" alt="f"></div>
+        <div class="card"><img class="img-fluid" src="${item.logo_url}" alt="f"></div>
         `
     })
     getData(urlpic+page+query+qStr, renderAirlines)
