@@ -8,7 +8,7 @@ let options = {
     method : 'GET',
     headers : {'x-api-key' : '5by5k6zv55vIEVCi0pyjWrqodlmXP90l2MA0n1tg'}
 }
-const url = `https://api.api-ninjas.com/v1/airlines?name=Ryanair`
+const url = `https://api.api-ninjas.com/v1/airlines?name=`
 const urlpic = `https://api.unsplash.com/search/photos?client_id=Ajtp2bCaCXnMcwLDiOGZWtHh1vuCDM6bszAihbOe6g0&page=`
 //document.querySelector(".myBtn").addEventListener("click", renderAirlines)
 
@@ -29,8 +29,9 @@ function nextPage()
     getData(urlpic+page+query+qStr, renderAirlines)
 }
 
-
-fetch(url, options)
+function fetchairlines()
+{
+    fetch(url+qStr, options)
     .then(res => res.json())
     .then(data => {
         console.log(data);
@@ -43,6 +44,9 @@ fetch(url, options)
     })
 
     console.log(airline);
+}
+fetchairlines()
+
 
 const getData = async (url, renderFC)=>{
         const response = await fetch(url)
@@ -76,8 +80,20 @@ function renderAirlines(data){
     
 }
 
+document.querySelector(".myBtn").addEventListener("click", searchAirlines)
 
-function searchAirlines(searched)
+function searchAirlines()
 {
+    
+    qStr = document.querySelector(".myInput").value
+    fetchairlines()
+    console.log(airline[0]);
+    if(qStr == airline[0].name)
+    {
+        document.querySelector(".airline-list").innerHTML=""
+        getData(urlpic+page+query+qStr, renderAirlines)
+        return
+    }
+    console.log("hiba");
 }
 
